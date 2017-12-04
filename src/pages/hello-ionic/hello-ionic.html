@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Répliques de Profs</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+  <h3>Ceci est encore en phase de test</h3>
+
+  <p>
+    Une réplique de profs sera générée aléatoirement en cliquant sur le bouton ci-dessous.
+  </p>
+  
+  <p>
+    <button ion-button color="primary" genere>Générer</button>
+  </p>
+
+  <p *ngFor="let req of replique">"{{req.libelle}}" {{req.nom}} {{req.pre}} : {{req.date}}</p>
+
+
+
+
+</ion-content>
