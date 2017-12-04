@@ -12,10 +12,14 @@ export class HelloIonicPage {
   constructor 
     (public navCtrl: NavController, public navParams: NavParams, public sqlPrd: RemoteSqlProvider) {    
   this.replique = [];
-    
-    this.sqlPrd.select("SELECT libelle,nom,pre,date FROM quotes,prof WHERE quotes.idprof = prof.id",null,this.replique);
-  
 
+  
+  
+  }
+  btnreq(){
+    this.replique = [];
+   this.sqlPrd.select("SELECT libelle,nom,pre,date FROM quotes,prof WHERE quotes.idprof = prof.id",null,this.replique);
+   
   }
 }
 

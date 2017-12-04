@@ -1,5 +1,6 @@
 <ion-header>
   <ion-navbar>
+
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
@@ -17,7 +18,7 @@
   </p>
   
   <p>
-    <button ion-button color="primary" genere>Générer</button>
+    <button ion-button color="primary" (click)="btnreq()">Générer</button>
   </p>
 
   <p *ngFor="let req of replique">"{{req.libelle}}" {{req.nom}} {{req.pre}} : {{req.date}}</p>
