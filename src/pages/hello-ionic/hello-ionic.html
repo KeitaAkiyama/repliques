@@ -18,12 +18,18 @@
   </p>
   
   <p>
-    <button ion-button color="primary" (click)="btnreq()">Générer</button>
+    <button ion-button color="primary" style="" (click)="btnreq()">RANDOM</button>
   </p>
 
-  <p *ngFor="let req of replique">"{{req.libelle}}" {{req.nom}} {{req.pre}} : {{req.date}}</p>
+ 
 
+  <ion-item>
+        <ion-label>Prof</ion-label>
+        <ion-select id="select">
+            <ion-option *ngFor="let prof of selectprof">{{prof.nom}} {{prof.pre}}</ion-option>
+        </ion-select>
+  </ion-item>
 
-
-
+  <p *ngFor="let req of replique">"{{req.libelle}}" {{req.nom}} {{req.pre}}</p><button ion-button color="primary" style="" (click)="btnprof()">Générer</button>
+  <p *ngFor="let pr of reqprof">"{{pr.libelle}}" {{pr.nom}} {{pr.pre}}</p>
 </ion-content>
