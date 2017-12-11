@@ -8,17 +8,24 @@ import { RemoteSqlProvider } from '../../providers/remotesql/remotesql';
 })
 export class HelloIonicPage {
   public replique : Array<{libelle : string,nom : string,pre: string, date : string}>
-  
+  public maxid : Array<{idprof : number}>;
+
   constructor 
     (public navCtrl: NavController, public navParams: NavParams, public sqlPrd: RemoteSqlProvider) {    
   this.replique = [];
-
+  this.maxid = [];
   
   
   }
   btnreq(){
-    this.replique = [];
-   this.sqlPrd.select("SELECT libelle,nom,pre,date FROM quotes,prof WHERE quotes.idprof = prof.id",null,this.replique);
+   
+   this.replique = [];
+   
+   
+   do this.sqlPrd.select("SELECT libelle,nom,pre,date FROM quotes,prof WHERE idprof=prof.id and prof.id = ROUND(RAND()*prof.id)+1 Limit 1",null,this.replique); 
+   while (this.replique[0]==null)
+   
+   
    
   }
 }
