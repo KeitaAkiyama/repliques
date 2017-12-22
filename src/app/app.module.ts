@@ -11,6 +11,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { RemoteSqlProvider } from '../providers/remotesql/remotesql';
 import { HttpClientModule } from '@angular/common/http' ;
+import { TextToSpeech } from '@ionic-native/text-to-speech';
 
 
 
@@ -39,6 +40,7 @@ import { HttpClientModule } from '@angular/common/http' ;
     StatusBar,
     SplashScreen,
     RemoteSqlProvider,
+    TextToSpeech,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
     
   ]

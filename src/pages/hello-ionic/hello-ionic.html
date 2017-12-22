@@ -1,38 +1,62 @@
 <ion-header>
-  <ion-navbar>
-
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
+  <ion-navbar color="primary">
     <ion-title>Répliques de Profs</ion-title>
   </ion-navbar>
 </ion-header>
 
 
 <ion-content padding>
+  <ion-grid>
 
-  <h3 style="text-align :center">Répliques des Profs de la section SIO !</h3><br>
+    <ion-row id='haut' row-auto>
+      <ion-col>
+        <h3 style="text-align :center">Répliques des Profs de la section SIO !</h3><br>
+      </ion-col>
+    </ion-row>
 
-  <p style="text-align :center">
-    Une réplique de profs sera générée aléatoirement en cliquant sur le bouton ci-dessous.
-  </p><br>
-  
-  <p id="btnrandom">
-    <button ion-button color="primary"  (click)="btnreq()">RANDOM</button>
-  </p><br><br>
+    <ion-row row-auto>
+      <ion-col>
+        <p style="text-align :center">
+        Une réplique de profs sera générée aléatoirement en cliquant sur le bouton ci-dessous.
+        </p><br>
+      
+    
+    <p id="btnrandom">
+      <button ion-button color="primary"  (click)="btnreq()">RANDOM</button>
+    </p><br><br>
+    <!--<ion-item>
+      <ion-label stacked>Text</ion-label>
+      <ion-textarea rows="5" [(ngModel)]="text"></ion-textarea>
+    </ion-item>-->
 
+    
+    
+    <p id ="rand" *ngFor="let req of replique">"{{req.libelle}}" {{req.nom}} {{req.pre}}
+    <button id="btnsonrand" clear ion-button (click)="sayText()"ion-only><ion-icon style="font-size :2em" name="md-volume-up"></ion-icon></button></p>
+    <p id ="sprof"*ngFor="let pr of reqprof">"{{pr.libelle}}" {{pr.nom}} {{pr.pre}}
+    <button id ="btnsonprof"clear ion-button (click)="sayText2()" ion-only><ion-icon style="font-size :2em" name="md-volume-up"></ion-icon></button></p>
+   
+    
+    </ion-col>
+    </ion-row>
+    
+    <ion-row style="border-radius :50px;" row-auto>
+        <ion-col>
+        <p (click)="profchoix()" style="text-align :center">Un prof précis ?</p>
+
+      <div id="prof" style="visibility: hidden;">
+          <ion-item>
+            <ion-label>Prof</ion-label>
+              <ion-select [(ngModel)]="unProf" interface="popover">
+                <ion-option *ngFor="let prof of selectprof" value={{prof.id}}>{{prof.nom}} {{prof.pre}}</ion-option>
+              </ion-select>
+          </ion-item>
+
+          <button ion-button color="primary"  (click)="btnprof()">Générer</button>
+        
  
-
-  <ion-item>
-        <ion-label>Prof</ion-label>
-        <ion-select [(ngModel)]="unProf" interface="popover">
-            <ion-option *ngFor="let prof of selectprof" value={{prof.id}}>{{prof.nom}} {{prof.pre}}</ion-option>
-        </ion-select>
-  </ion-item>
-
-  <p id="random" *ngFor="let req of replique">"{{req.libelle}}" {{req.nom}} {{req.pre}}</p>
-
-  <button ion-button color="primary"  (click)="btnprof()">Générer</button>
-
-  <p *ngFor="let pr of reqprof">"{{pr.libelle}}" {{pr.nom}} {{pr.pre}}</p>
+      </div>
+      </ion-col>
+      </ion-row>
+  </ion-grid>
 </ion-content>
